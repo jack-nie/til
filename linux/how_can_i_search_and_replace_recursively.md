@@ -21,3 +21,10 @@ Piece by piece:
         {} = this tells find that the filenames it found should be placed on sed's command-line here
         + = this tells find that the -exec action is finished, and we want to group the arguments into as few sed invocations as possible (generally more efficient than running it once per filename). To run it once per filename you can use \; instead of +.
 ```
+
+on mac osx:
+
+```
+sed -i '.bak' 's/old/new/g' logfile*
+for i in logfile*; do sed -i '.bak' 's/old/new/g' $i; done
+```
